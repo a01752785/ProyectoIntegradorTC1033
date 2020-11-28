@@ -17,7 +17,29 @@ private:
     int disponibles;
     Entrega& sigEntrega;
 public:
-    Producto(string nombre, double precio);
+    Producto(int idProducto, string nombre, double precio){
+        this->idProducto = idProducto;
+        this->nombre = nombre;
+        this->precio = precio;
+        this->peso = 0.5;
+        this->largo = 0.1;
+        this->ancho = 0.1;
+        this->alto = 0.1;
+        this->disponibles = 0;
+        this->sigEntrega = NULL;
+    }
+    Producto(Producto p){
+        idProducto = p.idProducto;
+        nombre = p.nombre;
+        peso = p.peso;
+        largo = p.largo;
+        alto = p.alto;
+        ancho = p.ancho;
+        alto = p.alto;
+        precio = p.precio;
+        disponibles = p.disponibles;
+        sigEntrega = p.sigEntrega;
+    }
     int getId() {
         return idProducto;
     }
@@ -40,52 +62,52 @@ public:
         return disponibles;
     }
     string getSigEntrega() {
-        if(sigEntrega == NULL){
+        if (sigEntrega == NULL) {
             return "No existen siguientes entregas del producto " + getNombre();
         }
-        return "Siguiente entrega para el producto " + getNombre() 
-        + " el " + (*sigEntrega).getFecha();
+        return "Siguiente entrega para el producto " + getNombre()
+            + " el " + (*sigEntrega).getFecha();
     }
     double getPrecio() {
         return precio;
     }
-    void setNombre(string nombre){
+    void setNombre(string nombre) {
         this->nombre = nombre;
     }
-    void setPeso(double peso){
+    void setPeso(double peso) {
         this->peso = peso;
     }
-    void setLargo(double largo){
+    void setLargo(double largo) {
         this->largo = largo;
     }
-    void setAncho(double ancho){
+    void setAncho(double ancho) {
         this->ancho = ancho;
     }
-    void setAlto(double alto){
+    void setAlto(double alto) {
         this->alto = alto;
     }
-    void setPrecio(double precio){
+    void setPrecio(double precio) {
         this->precio = precio;
     }
-    void agregarStock(int cantidad){
+    void agregarStock(int cantidad) {
         cout << "Stock agregado en " << cantidad << " unidades\n";
         cout << "Anterior disponible:" << disponibles << "\n";
         disponibles += cantidad;
         cout << "Nuevo disponible: " << disponibles << "\n";
     }
-    void vender(int cantidad){
-        if(getDisponibles >= cantidad){
+    void vender(int cantidad) {
+        if (getDisponibles >= cantidad) {
             disponibles -= cantidad;
             cout << "Venta exitosa del producto " + getNombre();
             cout << " en cantidad de " << cantidad << "\n";
         }
-        else{
+        else {
             cout << "Imposible vender, no hay existencias suficientes "
-            "para el producto" + getNombre() << "\n";
+                "para el producto" + getNombre() << "\n";
         }
     }
-    void aplicarDescuento(double descuento){
-        if(descuento < 0 || descuento > 1){
+    void aplicarDescuento(double descuento) {
+        if (descuento < 0 || descuento > 1) {
             cout << "Error: parametro de descuento no valido";
             return;
         }
@@ -93,7 +115,7 @@ public:
         cout << "Descuento del " << descuento * 100 << "% agregado\n";
         cout << "Precio anterior: " << getPrecio() << "\n";
         setPrecio(precio * factor);
-        cout << "Precio nuevo: " << getPrecio << "\n";
+        cout << "Precio nuevo: " << getPrecio() << "\n";
     }
 };//Clase producto
 
