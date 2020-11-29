@@ -113,16 +113,29 @@ public:
         }
         this->precio = precio;
     }
+    void setSigEntrega(string sigEntrega) {
+        this->sigEntrega = sigEntrega;
+    }
     bool operator==(const Producto& p) {
         return idProducto == p.idProducto;
     }
     void agregarStock(int cantidad) {
+        if(cantidad < 0){
+            cout << "Error: cantidad negativa\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         cout << "Stock agregado en " << cantidad << " unidades\n";
         cout << "Anterior disponible:" << disponibles << "\n";
         disponibles += cantidad;
         cout << "Nuevo disponible: " << disponibles << "\n";
     }
     void vender(int cantidad) {
+        if(cantidad <= 0){
+            cout << "Error: cantidad negativa o 0\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         if (disponibles >= cantidad) {
             disponibles -= cantidad;
             cout << "Venta exitosa del producto " + getNombre();
@@ -130,12 +143,12 @@ public:
         }
         else {
             cout << "Imposible vender, no hay existencias suficientes "
-                "para el producto" + getNombre() << "\n";
+                "para el producto " + getNombre() << "\n";
         }
     }
     void aplicarDescuento(double descuento) {
         if (descuento < 0 || descuento > 1) {
-            cout << "Error: parametro de descuento no valido";
+            cout << "Error: parametro de descuento no valido\n";
             return;
         }
         double factor = 1 - descuento;
