@@ -10,7 +10,6 @@ class Entrega {
 private:
     int idEntrega;
     vector< pair<Producto, int> > productos;
-    vector<int> cantidad;
     string direccion;
     string fecha;
 public:
@@ -45,7 +44,8 @@ public:
     }
     int cuentaProductos() {
         int total = 0;
-        for (int i = 0; i < productos.size(); i++) {
+        for (int i = 0; i <
+         productos.size(); i++) {
             total += productos[i].second;
         }
         return total;
