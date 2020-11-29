@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "entrega.h"
 using namespace std;
 class Producto {
 private:
@@ -15,20 +14,20 @@ private:
     double alto;
     double precio;
     int disponibles;
-    Entrega& sigEntrega;
+    string sigEntrega;
 public:
     Producto(int idProducto, string nombre, double precio) {
         this->idProducto = idProducto;
         this->nombre = nombre;
-        this->precio = precio;
+        this->precio = (precio >= 0)? precio : 0;
         this->peso = 0.5;
         this->largo = 0.1;
         this->ancho = 0.1;
         this->alto = 0.1;
         this->disponibles = 0;
-        this->sigEntrega = NULL;
+        this->sigEntrega = "";
     }
-    Producto(Producto p) {
+    Producto(const Producto& p) {
         idProducto = p.idProducto;
         nombre = p.nombre;
         peso = p.peso;
@@ -62,11 +61,11 @@ public:
         return disponibles;
     }
     string getSigEntrega() {
-        if (sigEntrega == NULL) {
+        if (sigEntrega == "") {
             return "No existen siguientes entregas del producto " + getNombre();
         }
         return "Siguiente entrega para el producto " + getNombre()
-            + " el " + (*sigEntrega).getFecha();
+            + " el " + sigEntrega;
     }
     double getPrecio() {
         return precio;
@@ -75,18 +74,43 @@ public:
         this->nombre = nombre;
     }
     void setPeso(double peso) {
+        if(peso < 0){
+            cout << "Error: peso no puede ser negativo\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         this->peso = peso;
     }
     void setLargo(double largo) {
+        if(largo < 0){
+            cout << "Error: largo no puede ser negativo\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         this->largo = largo;
     }
     void setAncho(double ancho) {
+        if(ancho < 0){
+            cout << "Error: ancho no puede ser negativo\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         this->ancho = ancho;
     }
     void setAlto(double alto) {
+        if(alto < 0){
+            cout << "Error: alto no puede ser negativo\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         this->alto = alto;
     }
     void setPrecio(double precio) {
+        if(precio < 0){
+            cout << "Error: precio no puede ser negativo\n";
+            cout << "No se ha realizado ningun cambio\n";
+            return;
+        }
         this->precio = precio;
     }
     bool operator==(const Producto& p) {

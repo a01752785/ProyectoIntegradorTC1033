@@ -37,15 +37,17 @@ public:
             "Telefono: " + telefono + "\n";
     }
     string enviarCorreoConfirmacion() {
-        string message = "Asunto: Confirmacion de compra en sade.com.mx\n" +
-            "ID del pedido: " + idPedido + "\n" +
+        string message = "";
+        message += "Asunto: Confirmacion de compra en sade.com.mx\n";
+        message +=
+            "ID del pedido: " + to_string(idPedido) + "\n" +
             "Nombre: " + nombreCliente + "\n" +
             "Direccion: " + direccion + "\n" +
             "Telefono: " + telefono + "\n" +
             "A continuacion se muestra un resumen de su pedido.\n";
         for (pair<Producto, int> concepto : productos) {
             message += concepto.first.getNombre();
-            message += ", " + concepto.second + " unidad(es)\n";
+            message += ", " + to_string(concepto.second) + " unidad(es)\n";
         }
         return message;
     }
