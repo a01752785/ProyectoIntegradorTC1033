@@ -20,11 +20,11 @@ int main() {
     //Prueba de producto
     cout << "***PRUEBAS DE CLASE PRODUCTO***\n";
     cout << "Llamada a constructor con {23987,\"Taza decorativa Popocatepetl\",150}\n";
-    Producto p1{23987,"Taza decorativa Popocatepetl",150};
+    Producto p1{ 23987,"Taza decorativa Popocatepetl",150 };
     cout << "Producto p1\n";
     cout << p1;
     cout << "Llamada a constructor con {p1}\n";
-    Producto p2{p1};
+    Producto p2{ p1 };
     cout << "Realizar cambios a p1\n";
     cout << "Cambio de nombre\n";
     p1.setNombre("Taza decorativa volcanes");
@@ -67,11 +67,11 @@ int main() {
     cout << "Aplicar descuento del 50% (0.5)\n";
     p1.aplicarDescuento(0.5);
     cout << "Comparar si p1 y p2 son iguales (dado por el ID)\n";
-    cout << ((p1 == p2)? "true" : "false") << "\n";
+    cout << ((p1 == p2) ? "true" : "false") << "\n";
     cout << "Crear producto p3 con diferente ID (2345)\n";
-    Producto p3{2345,"Producto 3",50};
+    Producto p3{ 2345,"Producto 3",50 };
     cout << "Comparar si p1 y p3 son iguales (dado por el ID)\n";
-    cout << ((p1 == p3)? "true" : "false") << "\n";
+    cout << ((p1 == p3) ? "true" : "false") << "\n";
     cout << "Imprimir producto 1\n";
     cout << p1;
     cout << "Imprimir producto 2 (copia del 1 antes de hacer operaciones)\n";

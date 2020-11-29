@@ -13,7 +13,16 @@ private:
     string direccion;
     string fecha;
 public:
-    Entrega(int, vector< pair<Producto, int> >, string, string);
+    Entrega(int idEntrega, vector< pair<Producto, int> > productos, string direccion, string fecha) {
+        for (int i = 0; i < productos.size(); i++) {
+            if (productos[i].second < 0)
+                productos[i].second = 0;
+        }
+        this->idEntrega = idEntrega;
+        this->productos = productos;
+        this->direccion = direccion;
+        this->fecha = fecha;
+    }
     int getId() {
         return idEntrega;
     }
@@ -33,7 +42,7 @@ public:
         cout << "La fecha se ha cambiado\n";
         cout << "Fecha anterior: " << this->fecha << "\n";
         this->fecha = fecha;
-        cout << "Fecha actual";
+        cout << "Fecha actual: " << fecha << "\n";
     }
     bool llevaProducto(Producto p) {
         for (int i = 0; i < productos.size(); i++) {
@@ -45,7 +54,7 @@ public:
     int cuentaProductos() {
         int total = 0;
         for (int i = 0; i <
-         productos.size(); i++) {
+            productos.size(); i++) {
             total += productos[i].second;
         }
         return total;
