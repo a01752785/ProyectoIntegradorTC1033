@@ -15,17 +15,24 @@ private:
     vector<Entrega> entregasPendientes;
     string telefono;
 public:
-    Proveedor(int idProveedor, string nombre) {
+    Proveedor(int idProveedor, string nombre, string telefono) {
         this->idProveedor = idProveedor;
         this->telefono = telefono;
+        this->nombre = nombre;
         productos = vector<Producto>();
         entregasPendientes = vector<Entrega>();
     }
     int getId() {
         return idProveedor;
     }
+    string getNombre() {
+        return nombre;
+    }
     vector<Producto> getProductos() {
         return productos;
+    }
+    vector<Entrega> getEntregasPendientes() {
+        return entregasPendientes;
     }
     string getTelefono() {
         return telefono;
