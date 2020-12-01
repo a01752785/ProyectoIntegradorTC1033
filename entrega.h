@@ -13,6 +13,7 @@ private:
     string direccion;
     string fecha;
 public:
+    Entrega() = default;
     Entrega(int idEntrega, vector< pair<Producto, int> > productos, string direccion, string fecha) {
         for (int i = 0; i < productos.size(); i++) {
             if (productos[i].second < 0)

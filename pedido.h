@@ -14,6 +14,7 @@ private:
     string telefono;
     vector< pair<Producto, int> > productos;
 public:
+    Pedido() = default;
     Pedido(int idPedido, string nombreCliente, string direccion, string telefono, vector< pair<Producto, int> > productos) {
         for (int i = 0; i < productos.size(); i++) {
             if (productos[i].second < 0)

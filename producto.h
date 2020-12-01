@@ -16,6 +16,7 @@ private:
     int disponibles;
     string sigEntrega;
 public:
+    Producto() = default;
     Producto(int idProducto, string nombre, double precio) {
         this->idProducto = idProducto;
         this->nombre = nombre;
@@ -76,7 +77,7 @@ public:
     void setPeso(double peso) {
         if(peso < 0){
             cout << "Error: peso no puede ser negativo\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         this->peso = peso;
@@ -84,7 +85,7 @@ public:
     void setLargo(double largo) {
         if(largo < 0){
             cout << "Error: largo no puede ser negativo\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         this->largo = largo;
@@ -92,7 +93,7 @@ public:
     void setAncho(double ancho) {
         if(ancho < 0){
             cout << "Error: ancho no puede ser negativo\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         this->ancho = ancho;
@@ -100,7 +101,7 @@ public:
     void setAlto(double alto) {
         if(alto < 0){
             cout << "Error: alto no puede ser negativo\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         this->alto = alto;
@@ -108,7 +109,7 @@ public:
     void setPrecio(double precio) {
         if(precio < 0){
             cout << "Error: precio no puede ser negativo\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         this->precio = precio;
@@ -122,18 +123,19 @@ public:
     void agregarStock(int cantidad) {
         if(cantidad < 0){
             cout << "Error: cantidad negativa\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
+        cout << "Producto " << getNombre() << "\n";
         cout << "Stock agregado en " << cantidad << " unidades\n";
-        cout << "Anterior disponible:" << disponibles << "\n";
+        cout << "Anterior disponible: " << disponibles << "\n";
         disponibles += cantidad;
         cout << "Nuevo disponible: " << disponibles << "\n";
     }
     void vender(int cantidad) {
         if(cantidad <= 0){
             cout << "Error: cantidad negativa o 0\n";
-            cout << "No se ha realizado ningun cambio\n";
+            cout << "No se ha realizado ningun cambio en el parametro\n";
             return;
         }
         if (disponibles >= cantidad) {

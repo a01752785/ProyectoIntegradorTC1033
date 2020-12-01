@@ -15,6 +15,7 @@ private:
     vector<Entrega> entregasPendientes;
     string telefono;
 public:
+    Proveedor() = default;
     Proveedor(int idProveedor, string nombre, string telefono) {
         this->idProveedor = idProveedor;
         this->telefono = telefono;
