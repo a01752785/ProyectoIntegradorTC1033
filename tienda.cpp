@@ -290,8 +290,8 @@ void eliminarPedido(map<int, Pedido>& pedidos, map<int, Producto>& productos, in
         cout << "No se ha realizado ningun cambio\n";
     }
     else {
-        vector< pair<Producto,int> > venta;
-        for(pair<Producto, int> producto: venta) {
+        vector< pair<Producto, int> > venta;
+        for (pair<Producto, int> producto : venta) {
             int idProducto = producto.first.getId();
             productos[idProducto].agregarStock(producto.second);
         }
@@ -392,19 +392,19 @@ int main() {
         }
         switch (op) {
         case 1:
-            if(tipo == 1) {
+            if (tipo == 1) {
                 cout << "\n";
                 registrarProducto(idDispProductos, productos);
             }
-            else if(tipo == 2) {
+            else if (tipo == 2) {
                 cout << "\n";
                 registrarProveedor(idDispProveedores, proveedores);
             }
-            else if(tipo == 3) {
+            else if (tipo == 3) {
                 cout << "\n";
                 registrarEntrega(idDispEntregas, entregas, productos, proveedores);
             }
-            else if(tipo == 4) {
+            else if (tipo == 4) {
                 cout << "\n";
                 realizarVenta(productos, pedidos, idDispPedidos);
             }
@@ -413,7 +413,7 @@ int main() {
             }
             break;
         case 2:
-            if(tipo == 1) {
+            if (tipo == 1) {
                 cout << "\n";
                 listaProductos(productos);
                 cout << "Introduzca el ID del producto que desea eliminar: ";
@@ -421,7 +421,7 @@ int main() {
                 cin >> idProducto;
                 eliminarProducto(productos, idProducto);
             }
-            else if(tipo == 2) {
+            else if (tipo == 2) {
                 cout << "\n";
                 listaProveedores(proveedores);
                 cout << "Introduzca el ID del proveedor que desea eliminar: ";
@@ -429,7 +429,7 @@ int main() {
                 cin >> idProveedor;
                 eliminarProveedor(proveedores, entregas, idProveedor);
             }
-            else if(tipo == 3) {
+            else if (tipo == 3) {
                 cout << "\n";
                 listaEntregas(entregas);
                 cout << "Introduzca el ID de la entrega que desea eliminar: ";
@@ -437,7 +437,7 @@ int main() {
                 cin >> idEntrega;
                 eliminarEntrega(entregas, proveedores, idEntrega, idDispProveedores);
             }
-            else if(tipo == 4) {
+            else if (tipo == 4) {
                 cout << "\n";
                 listaPedidos(pedidos);
                 cout << "Introduzca el ID del pedido que desea eliminar: ";
@@ -450,48 +450,48 @@ int main() {
             }
             break;
         case 3:
-            if(tipo == 1) {
+            if (tipo == 1) {
                 listaProductos(productos);
                 cout << "Introduzca el ID del producto del cual quiere obtener informacion: ";
                 int idProducto;
                 cin >> idProducto;
-                if(productos.find(idProducto) == productos.end()) {
+                if (productos.find(idProducto) == productos.end()) {
                     cout << "El producto no existe\n";
                 }
-                else{
+                else {
                     cout << productos[idProducto];
                 }
             }
-            else if(tipo == 2) {
+            else if (tipo == 2) {
                 listaProveedores(proveedores);
                 cout << "Introduzca el ID del proveedor del cual quiere obtener informacion: ";
                 int idProveedor;
                 cin >> idProveedor;
-                if(proveedores.find(idProveedor) == proveedores.end()) {
+                if (proveedores.find(idProveedor) == proveedores.end()) {
                     cout << "El proveedor no existe\n";
                 }
                 else {
                     cout << proveedores[idProveedor];
                 }
             }
-            else if(tipo == 3) {
+            else if (tipo == 3) {
                 listaEntregas(entregas);
                 cout << "Introduzca el ID de la entrega de la cual quiere obtener informacion: ";
                 int idEntrega;
                 cin >> idEntrega;
-                if(entregas.find(idEntrega) == entregas.end()) {
+                if (entregas.find(idEntrega) == entregas.end()) {
                     cout << "La entrega no existe\n";
                 }
                 else {
                     cout << entregas[idEntrega];
                 }
             }
-            else if(tipo == 4) {
+            else if (tipo == 4) {
                 listaPedidos(pedidos);
                 cout << "Introduzca el ID del pedido del cual quiere obtener informacion: ";
                 int idPedido;
                 cin >> idPedido;
-                if(pedidos.find(idPedido) == pedidos.end()) {
+                if (pedidos.find(idPedido) == pedidos.end()) {
                     cout << "El pedido no existe\n";
                 }
                 else {
